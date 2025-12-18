@@ -1,0 +1,480 @@
+/* style.css - 样式文件 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #f0f0f0;
+}
+
+.app-header h1 i {
+    color: #6c8eff;
+    margin-right: 15px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #aaa;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* 控制面板样式 */
+.control-panel {
+    flex: 0 0 350px;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.control-panel h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #6c8eff;
+    display: flex;
+    align-items: center;
+}
+
+.control-panel h2 i {
+    margin-right: 10px;
+}
+
+.instruction-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.instruction-help {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+#systemPrompt {
+    width: 100%;
+    height: 300px;
+    background: rgba(10, 10, 20, 0.8);
+    border: 1px solid rgba(108, 142, 255, 0.3);
+    border-radius: 5px;
+    color: #e0e0e0;
+    font-family: 'Noto Sans SC', monospace;
+    font-size: 0.85rem;
+    padding: 15px;
+    resize: vertical;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+#systemPrompt:focus {
+    outline: none;
+    border-color: #6c8eff;
+}
+
+.instruction-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background: #4a6fff;
+    color: white;
+    flex: 2;
+}
+
+.btn-primary:hover {
+    background: #3a5fef;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    flex: 1;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-warning {
+    background: rgba(255, 100, 100, 0.2);
+    color: #ff9999;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-warning:hover {
+    background: rgba(255, 100, 100, 0.3);
+}
+
+.instruction-note {
+    font-size: 0.8rem;
+    color: #888;
+    font-style: italic;
+}
+
+.session-info {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.session-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #6c8eff;
+    display: flex;
+    align-items: center;
+}
+
+.session-info h3 i {
+    margin-right: 10px;
+}
+
+.session-info p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+#currentMode, #messageCount {
+    color: #6c8eff;
+    font-weight: bold;
+}
+
+/* 聊天区域样式 */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    font-size: 1.5rem;
+    color: #6c8eff;
+    display: flex;
+    align-items: center;
+}
+
+.chat-header h2 i {
+    margin-right: 10px;
+}
+
+.chat-controls {
+    display: flex;
+    align-items: center;
+}
+
+.typing-indicator {
+    display: none;
+    align-items: center;
+    color: #6c8eff;
+    font-size: 0.9rem;
+}
+
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background: #6c8eff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    animation: typing 1.5s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh;
+}
+
+.message {
+    display: flex;
+    max-width: 85%;
+}
+
+.message.user {
+    align-self: flex-end;
+}
+
+.message.assistant {
+    align-self: flex-start;
+}
+
+.message.welcome-msg {
+    align-self: center;
+    max-width: 90%;
+    background: rgba(108, 142, 255, 0.1);
+    border: 1px solid rgba(108, 142, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.message-content {
+    padding: 15px 20px;
+    border-radius: 10px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.user .message-content {
+    background: rgba(108, 142, 255, 0.2);
+    border: 1px solid rgba(108, 142, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.assistant .message-content {
+    background: rgba(30, 30, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #f0f0f0;
+}
+
+.message-content p {
+    margin-bottom: 10px;
+}
+
+.message-content ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.message-content li {
+    margin-bottom: 5px;
+}
+
+.message-content code {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #ffcc66;
+}
+
+.chat-input-area {
+    padding: 20px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.input-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 5px;
+    color: #aaa;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#userInput {
+    flex: 1;
+    background: rgba(10, 10, 20, 0.8);
+    border: 1px solid rgba(108, 142, 255, 0.3);
+    border-radius: 8px;
+    color: #f0f0f0;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 0.95rem;
+    padding: 15px;
+    resize: none;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+#userInput:focus {
+    outline: none;
+    border-color: #6c8eff;
+}
+
+.btn-send {
+    background: #4a6fff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-send:hover {
+    background: #3a5fef;
+}
+
+.input-hint {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.input-hint i {
+    margin-right: 5px;
+    color: #6c8eff;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 0.8rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .control-panel {
+        flex: none;
+        width: 100%;
+    }
+    
+    .chat-messages {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .app-header h1 {
+        font-size: 2rem;
+    }
+    
+    .chat-header {
+        padding: 15px;
+    }
+    
+    .chat-messages {
+        padding: 15px;
+        max-height: 50vh;
+    }
+    
+    .chat-input-area {
+        padding: 15px;
+    }
+    
+    .message {
+        max-width: 95%;
+    }
+}

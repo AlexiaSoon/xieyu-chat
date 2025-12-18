@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静域 · 谢屿</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1><i class="fas fa-cube"></i> 静域 · 谢屿</h1>
+            <p class="subtitle">秩序与寂静的私人场域</p>
+        </header>
+
+        <main class="main-content">
+            <section class="control-panel">
+                <h2><i class="fas fa-sliders-h"></i> 系统指令</h2>
+                <div class="instruction-box">
+                    <p class="instruction-help">在此处粘贴完整的《谢屿 · 终极系统提示词》。这将定义他的全部人格与行为法则。</p>
+                    <textarea id="systemPrompt" placeholder="请将《谢屿 · 终极系统提示词》完整粘贴于此..."></textarea>
+                    <div class="instruction-actions">
+                        <button id="savePromptBtn" class="btn btn-primary">
+                            <i class="fas fa-save"></i> 保存并重置对话
+                        </button>
+                        <button id="loadDefaultBtn" class="btn btn-secondary">
+                            <i class="fas fa-history"></i> 加载默认指令
+                        </button>
+                    </div>
+                    <p class="instruction-note"><strong>注意：</strong>每次修改指令后，必须点击“保存并重置对话”以生效。这将清除当前对话历史。</p>
+                </div>
+
+                <div class="session-info">
+                    <h3><i class="fas fa-info-circle"></i> 当前状态</h3>
+                    <p>模式：<span id="currentMode">未设定</span></p>
+                    <p>对话轮数：<span id="messageCount">0</span></p>
+                    <button id="clearChatBtn" class="btn btn-warning">
+                        <i class="fas fa-trash-alt"></i> 清除对话历史
+                    </button>
+                </div>
+            </section>
+
+            <section class="chat-area">
+                <div class="chat-header">
+                    <h2><i class="fas fa-comments"></i> 对话</h2>
+                    <div class="chat-controls">
+                        <div class="typing-indicator" id="typingIndicator">
+                            <span></span><span></span><span></span> 谢屿正在思考...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <!-- 对话消息将在这里动态显示 -->
+                    <div class="message welcome-msg">
+                        <div class="message-content">
+                            <p>系统已就绪。请在上方设置系统指令以唤醒谢屿。</p>
+                            <p>建议场景开头范例：</p>
+                            <ul>
+                                <li><strong>俱乐部初遇：</strong>“深夜的俱乐部，灯光昏暗。新来的客人孙雪婷坐在角落，她的目光穿过人群，无声地落在了你身上。”</li>
+                                <li><strong>职场汇报：</strong>“周一上午，你的办公室。孙雪婷作为新项目经理，正在向你汇报季度数据。”</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-header">
+                        <span>孙雪婷</span>
+                        <div class="input-actions">
+                            <button id="formatBtn" class="icon-btn" title="格式化输入（自动添加括号）">
+                                <i class="fas fa-code"></i>
+                            </button>
+                            <button id="quickSceneBtn" class="icon-btn" title="快速场景提示">
+                                <i class="fas fa-bolt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea id="userInput" placeholder="以孙雪婷的视角输入对话或动作描述...（按Ctrl+Enter发送）"></textarea>
+                        <button id="sendBtn" class="btn-send">
+                            <i class="fas fa-paper-plane"></i> 发送
+                        </button>
+                    </div>
+                    <div class="input-hint">
+                        <p><i class="fas fa-lightbulb"></i> 提示：使用括号 <code>()</code> 描述动作与神态，如：<code>（我深吸一口气，目光低垂）</code></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>谢屿 · 人格系统 v1.0 | 基于 DeepSeek API | 本工具仅用于创意角色扮演</p>
+        </footer>
+    </div>
+
+    <!-- 加载JavaScript文件 -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
